@@ -8,7 +8,9 @@ WORKDIR /root
 ADD https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh .
 
 # run the install, initialize conda, and install jupyter lab
-RUN bash Miniconda3-py39_4.12.0-Linux-x86_64.sh -b -p $HOME/miniconda && \
+RUN apt update && \
+    apt install -y vim && \
+    bash Miniconda3-py39_4.12.0-Linux-x86_64.sh -b -p $HOME/miniconda && \
     $HOME/miniconda/bin/conda init && \
     $HOME/miniconda/bin/conda install -c conda-forge jupyterlab -y
 
