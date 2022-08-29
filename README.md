@@ -1,4 +1,4 @@
-# CUDA Enabled Miniconda3 Environment 
+# CUDA Enabled Jupyter Lab Environment with Miniconda3
 
 This repository creates a docker image for running serving the Jupyter Lab app from a container behind a reverse proxy.
 
