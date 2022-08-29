@@ -28,6 +28,8 @@ docker run --name cudaconda --rm -p 8888:8888 -d --gpus all cudaconda3
 
 ## Adding PyTorch to Your Lab Environment
 
+Depending on the version of CUDA you are using, the installation command will look like:
+
 ```shell
 conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
 ```
