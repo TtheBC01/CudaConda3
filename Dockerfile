@@ -1,5 +1,5 @@
 # adjust the base image for your target version of cuda
-FROM nvidia/cuda:11.0.3-base-ubuntu20.04
+FROM nvidia/cuda:11.4.0-base-ubuntu20.04
 
 # set the working directory to be /root
 WORKDIR /root
