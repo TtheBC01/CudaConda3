@@ -23,7 +23,7 @@ build a local image:
 git clone https://github.com/TtheBC01/nvidia-miniconda.git
 cd nvidia-miniconda
 docker build -t cudaconda3 .
-docker run --name cudaconda --rm -p 8888:8888 -d cudaconda3
+docker run --name cudaconda --rm -p 8888:8888 -d --gpus all cudaconda3
 ```
 
 ## Adding PyTorch to Your Lab Environment
