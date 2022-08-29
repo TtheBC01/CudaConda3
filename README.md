@@ -32,6 +32,8 @@ docker build -t cudaconda3 .
 docker run --name cudaconda --rm -p 8888:8888 -d --gpus all cudaconda3
 ```
 
+You should be able to access the Jupyter Lab application from your browser now by going to http://localhost:8888/jupyter/lab.
+
 ## Adding PyTorch to Your Lab Environment
 
 Depending on the version of CUDA you are using, the installation command will look like:
