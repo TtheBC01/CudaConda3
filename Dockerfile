@@ -1,6 +1,10 @@
-# adjust the base image for your target version of cuda
-FROM nvidia/cuda:11.4.0-base-ubuntu20.04
+# default Cuda version is 11.4 with Ubuntu 20.04 as the OS
+ARG CUDATAG=11.4.0-base-ubuntu20.04
 
+# adjust the base image for your target version of cuda
+FROM nvidia/cuda:${CUDATAG}
+
+# default Miniconda version is 4.12 with Python 3.9
 ARG MINICONDA=Miniconda3-py39_4.12.0-Linux-x86_64.sh
 
 # set the working directory to be /root
@@ -10,7 +14,8 @@ WORKDIR /root
 ADD https://repo.anaconda.com/miniconda/${MINICONDA} .
 
 # run the install, initialize conda, and install jupyter lab
-RUN apt-get update && \
+RUN DEBIAN_FRONTEND=noninteractive && \
+    apt-get update && \
     apt-get install -y vim && \
     bash ${MINICONDA} -b -p $HOME/miniconda && \
     $HOME/miniconda/bin/conda init && \

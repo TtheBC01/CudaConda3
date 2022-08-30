@@ -17,7 +17,7 @@ docker pull tthebc01/cudaconda3
 
 ## Building Locally
 
-To build a local image and run :
+To build a local image and run:
 
 ```shell
 git clone https://github.com/TtheBC01/nvidia-miniconda.git
