@@ -28,7 +28,7 @@ docker run --name cudaconda --rm -p 8888:8888 -d --gpus all cudaconda3
 
 You should be able to access the Jupyter Lab application from your browser now by going to http://localhost:8888/jupyter/lab.
 
-### Chainging Conda or Cuda versions
+### Changing Conda or Cuda versions
 
 For proper operation, the cudaconda3 base image must match the CUDA version on the host machine. First, check the version of CUDA installed on 
 the host machine you will be running the container on:
