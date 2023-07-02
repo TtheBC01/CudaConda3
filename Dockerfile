@@ -1,5 +1,5 @@
-# default Cuda version is 11.4 with Ubuntu 20.04 as the OS
-ARG CUDATAG=11.4.0-base-ubuntu20.04
+# default Cuda version is 12.2 with Ubuntu 20.04 as the OS
+ARG CUDATAG=12.2.0-devel-ubuntu20.04
 
 # adjust the base image for your target version of cuda
 FROM nvidia/cuda:${CUDATAG}
