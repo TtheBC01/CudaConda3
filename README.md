@@ -42,8 +42,8 @@ nvidia-smi
 
 Next, the [`Dockerfile`](/Dockerfile) is configured with two optional build arguments:
 
-- `MINCONDA`: Default is `Miniconda3-py39_4.12.0-Linux-x86_64.sh`, see the [Miniconda installer](https://docs.conda.io/en/latest/miniconda.html) page for more options (you'll need to use a Linux installer though)
-- `CUDATAG`: Default is [`11.4.0-base-ubuntu20.04` ](https://hub.docker.com/layers/cuda/nvidia/cuda/11.4.0-runtime-ubuntu20.04/images/sha256-5411ed37888d37eb7567f218fd46495e6967f7a389109ba65a4db83e9e9fd8b1?context=explore), see the [`nvidia/cuda`](https://hub.docker.com/r/nvidia/cuda/tags) Docker Hub repository for more options (stick to Debian based tags)
+- `MINCONDA`: Default is `Miniconda3-py310_23.3.1-0-Linux-x86_64.sh`, see the [Miniconda installer](https://docs.conda.io/en/latest/miniconda.html) page for more options (you'll need to use a Linux installer though)
+- `CUDATAG`: Default is [`12.2.0-devel-ubuntu20.04` ](https://hub.docker.com/layers/nvidia/cuda/12.2.0-devel-ubuntu20.04/images/sha256-6d57f64a7222a57c6147e9fcef03d2230fe3978b4d2b34189d76a576564036d8?context=explore) Docker Hub repository for more options (stick to Debian based tags)
 
 Therefore, you can customize the build for your needs with a command like the following:
 
