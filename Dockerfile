@@ -19,7 +19,6 @@ RUN DEBIAN_FRONTEND=noninteractive && \
     apt-get install -y vim && \
     bash ${MINICONDA} -b -p $HOME/miniconda && \
     $HOME/miniconda/bin/conda init && \
-    #$HOME/miniconda/bin/conda install -c conda-forge jupyterlab jupyter-collaboration marimo -y && \
     $HOME/miniconda/bin/python -m pip install jupyterlab jupyter-collaboration marimo && \
     rm ${MINICONDA}
 
