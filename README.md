@@ -1,15 +1,18 @@
 # CUDA Enabled Jupyter Lab Environment with Miniconda3
 
-This repository creates a docker image for serving the [Jupyter Lab](https://jupyter.org/) application from a container hosted on a GPU-accelerated machine which 
-is itself behind a reverse proxy. See [Cloud-in-a-Box](https://github.com/TtheBC01/Cloud-in-a-Box) for a complete deployment stack with authentication and 
-resource monitoring. 
+This repository creates a docker image for serving python notebooks from a container hosted on a GPU-accelerated machine (which 
+is itself behind a reverse proxy). See [Cloud-in-a-Box](https://github.com/TtheBC01/Cloud-in-a-Box) for a complete deployment stack with authentication and resource monitoring. 
+
+Out-of-the box notebook support:
+- [Jupyter Lab](https://jupyter.org/)
+- [Marimo](https://marimo.io/)
 
 **WARNING**: The [`entrypoint.sh`](/entrypoint.sh) script disables the native token-based authentication in the Jupyter Lab application since the resulting base image
 is intended to be hosted behind a reverse proxy application with its own authentication and authorization flow. 
 
 ## Pre-built Docker Image
 
-A version of [`cudaconda3`](https://hub.docker.com/r/tthebc01/cudaconda3) is available on docker hub pre-built for CUDA 11.4 and Python 3.9:
+A version of [`cudaconda3`](https://hub.docker.com/r/tthebc01/cudaconda3) is available on docker hub pre-built for CUDA 12.2.0 and Python 3.10:
 
 ```shell
 docker pull tthebc01/cudaconda3
@@ -17,13 +20,13 @@ docker pull tthebc01/cudaconda3
 
 ## Building Locally
 
-To build a local image and run:
+To build a local image and run with a local directory mounted in the container, do this:
 
 ```shell
-git clone https://github.com/TtheBC01/nvidia-miniconda.git
-cd nvidia-miniconda
+git clone https://github.com/TtheBC01/CudaConda3.git
+cd CudaConda3
 docker build -t cudaconda3 .
-docker run --name cudaconda --rm -p 8888:8888 -d --gpus all cudaconda3
+docker run --name cudaconda --rm -p 8888:8888 -d --gpus all -v ~/path/to/project:/root/project cudaconda3
 ```
 
 You should be able to access the Jupyter Lab application from your browser now by going to http://localhost:8888/jupyter/lab.
@@ -50,8 +53,10 @@ docker build --build-arg MINICONDA=Miniconda3-py37_4.12.0-Linux-x86_64.sh --buil
 
 ## Adding PyTorch to Your Lab Environment
 
-Depending on the version of CUDA you are using, the installation command will look like:
+See the [PyTorch installation](https://pytorch.org/get-started/locally/) guide for commands to install your target version of the package. 
 
-```shell
-conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
+For example, installation with CUDA 12.4 will look something like this: 
+
+```sh
+python -m pip install torch torchvision torchaudio
 ```
